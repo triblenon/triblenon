@@ -3,7 +3,7 @@ I now live and breathe for rust.
 My email is at <triblenon@gmail.com>.        
 
 
-![triblenon-profile-image](docs/10203041MB3rddone3.jpg =500x)     
+![triblenon-profile-image](docs/10203041MB3rddone3.jpg)     
         
 
 # triblenon - rust      
