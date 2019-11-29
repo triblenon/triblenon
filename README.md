@@ -3,8 +3,9 @@ I now live and breath for rust.
 My email is at <triblenon@gmail.com>.        
 
 
-![triblenon-image](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")        
-         
+![triblenon-profile-image](docs/10203041MB3rd.jpg "Profile")     
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+        
 
 # triblenon - rust      
 
