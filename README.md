@@ -3,8 +3,7 @@ I now live and breath for rust.
 My email is at <triblenon@gmail.com>.        
 
 
-![triblenon-profile-image](docs/10203041MB3rd.jpg "Profile")     
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![triblenon-profile-image](docs/10203041MB3rddone3.jpg "Profile")     
         
 
 # triblenon - rust      
