@@ -1,9 +1,9 @@
-I am here at <https://github.com/triblenon> and <www.triblenon.tk>.        
+I am here at <https://github.com/triblenon> and <www.triblenon.tk>.            
 I now live and breath for rust.       
 My email is at <triblenon@gmail.com>.        
 
 
-![triblenon](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")        
+![triblenon-image](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")        
          
 
 # triblenon - rust      
