@@ -15,3 +15,6 @@ Each project here is the tutorial that I have done while reading The Book below 
         
 Wrote  `minigrep`  - An I/O Project: Building a Command Line Program on 07/12/2019 Saturday.       
 <https://github.com/triblenon/triblenon/tree/master/minigrep> 
+
+Started WebAssembly with Rust on 21/12/2019 Saturday following the official guide below.
+<https://rustwasm.github.io/docs/book/>
