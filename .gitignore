@@ -3,3 +3,13 @@
 **/.idea/
 .DS_Store
 **/.DS_Store
+**/target
+*/**/*.rs.bk
+*/Cargo.lock
+*/bin/
+*/pkg/
+*/wasm-pack.log
+*/node_modules
+*/**/node_modules
+*/dist
+*/**/dist
