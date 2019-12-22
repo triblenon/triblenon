@@ -4,7 +4,7 @@ pub fn set_panic_hook() {
     // we will get better error messages if our code ever panics.
     //
     // For more details see
-    // https://github.com/rustwasm/console_error_panic_hook#readme
+    // https://github.com/rustwasm/console_error_panic_hook#readme Yes
     #[cfg(feature = "console_error_panic_hook")]
     console_error_panic_hook::set_once();
 }

@@ -1,4 +1,4 @@
-//! Test suite for the Web and headless browsers.
+//! Test suite for the Web and headless browsers. Yes
 
 #![cfg(target_arch = "wasm32")]
 
