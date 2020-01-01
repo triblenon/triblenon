@@ -4,6 +4,15 @@ use wasm_bindgen::prelude::*;
 
 use std::fmt;
 
+extern crate web_sys;
+
+// A macro to provide `println!(..)`-style syntax for `console.log` logging.
+macro_rules! log {
+    ( $( $t:tt )* ) => {
+        web_sys::console::log_1(&format!( $( $t )* ).into());
+    }
+}
+
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator. Yes.
 #[cfg(feature = "wee_alloc")]
@@ -40,11 +49,44 @@ impl Universe {
 
                 let neighbor_row = (row + delta_row) % self.height;
                 let neighbor_col = (column + delta_col) % self.width;
+                let self_idx = self.get_index(row, column);
                 let idx = self.get_index(neighbor_row, neighbor_col);
                 count += self.cells[idx] as u8;
+
+//                log!(
+//                    "live_neighbor_count\n
+//                    row          {}, column       {}\n
+//                    delta_row    {}, delta_col    {}\n
+//                    neighbor_row {}, neighbor_col {}\n
+//                    self_idx     {}, neighbor_idx {}\n
+//                    count        {}.",
+//                    row,
+//                    column,
+//                    delta_row,
+//                    delta_col,
+//                    neighbor_row,
+//                    neighbor_col,
+//                    self_idx,
+//                    idx,
+//                    count
+//                );
+
             }
         }
         count
+    }
+
+    pub fn get_cells(&self) -> &[Cell] {
+        &self.cells
+    }
+
+    /// Set cells to be alive in a universe by passing the row and column
+    /// of each cell as an array.
+    pub fn set_cells(&mut self, cells: &[(u32, u32)]) {
+        for (row, col) in cells.iter().cloned() {
+            let idx = self.get_index(row, col);
+            self.cells[idx] = Cell::Alive;
+        }
     }
 }
 
@@ -59,6 +101,14 @@ impl Universe {
                 let idx = self.get_index(row, col);
                 let cell = self.cells[idx];
                 let live_neighbors = self.live_neighbor_count(row, col);
+
+//                log!(
+//                    "cell[{}, {}] is {:?} and has {} live neighbors",
+//                    row,
+//                    col,
+//                    cell,
+//                    live_neighbors
+//                );
 
                 let next_cell = match (cell, live_neighbors) {
                     // Rule 1: Any live cell with fewer than two live neighbours
@@ -77,6 +127,8 @@ impl Universe {
                     (otherwise, _) => otherwise,
                 };
 
+//                log!("    it becomes {:?}", next_cell);
+
                 next[idx] = next_cell;
             }
         }
@@ -85,6 +137,7 @@ impl Universe {
     }
 
     pub fn new() -> Universe {
+        utils::set_panic_hook();
         let width = 64;
         let height = 64;
 
@@ -119,6 +172,22 @@ impl Universe {
 
     pub fn cells(&self) -> *const Cell {
         self.cells.as_ptr()
+    }
+
+    /// Set the width of the universe.
+    ///
+    /// Resets all cells to the dead state.
+    pub fn set_width(&mut self, width: u32) {
+        self.width = width;
+        self.cells = (0..width * self.height).map(|_i| Cell::Dead).collect();
+    }
+
+    /// Set the height of the universe.
+    ///
+    /// Resets all cells to the dead state.
+    pub fn set_height(&mut self, height: u32) {
+        self.height = height;
+        self.cells = (0..self.width * height).map(|_i| Cell::Dead).collect();
     }
 }
 
