@@ -19,4 +19,5 @@ Pls see `minigrep` folder.
 
 Started WebAssembly with Rust on 21/12/2019 Saturday following the official guide below.      
 <https://rustwasm.github.io/docs/book/>      
-Pls see `wasm-game-of-life` folder.
+Pls see `wasm-game-of-life` folder.        
+Finished this on 05/01/2020 and published to <https://www.npmjs.com/package/wasm-game-of-life-triblenon>.
